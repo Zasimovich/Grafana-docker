@@ -1,3 +1,6 @@
+# Dockerfile was changed to build Grafana version 6.3.3 from ficial site https://grafana.com/grafana/download
+
+
 # Grafana Docker Image
 
 This builds a Docker image with the latest master build of Grafana.
