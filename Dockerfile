@@ -1,6 +1,6 @@
 # From & maintainer
-FROM                stakater/base:latest
-MAINTAINER          Rasheed Amir <rasheed@aurorasolutions.io>
+FROM                ubuntu
+MAINTAINER          Alexander Zasimovich <o.zasimovich@gmail.com>
 
 ARG                 GRAFANA_VERSION
 

@@ -14,8 +14,8 @@ echo "GRAFANA_VERSION: ${_grafana_version}"
 echo "DOCKER TAG: ${_grafana_tag}"
 echo "RELEASE BUILD: ${_release_build}"
 
-docker build --build-arg GRAFANA_VERSION=${_grafana_version} --tag "stakater/grafana:${_grafana_tag}"  --no-cache=true .
+docker build --build-arg GRAFANA_VERSION=${_grafana_version} --tag "adept23/grafana:${_grafana_tag}"  --no-cache=true .
 
 if [ $_release_build == true ]; then
-	docker build --build-arg GRAFANA_VERSION=${_grafana_version} --tag "stakater/grafana:latest"  --no-cache=true .
+	docker build --build-arg GRAFANA_VERSION=${_grafana_version} --tag "adept23/grafana:latest"  --no-cache=true .
 fi
