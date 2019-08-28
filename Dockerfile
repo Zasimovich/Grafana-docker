@@ -10,9 +10,9 @@ ENV                 GF_INSTALL_PLUGINS=grafana-kairosdb-datasource
 RUN                 apt-get update && \
                     apt-get -y --no-install-recommends install libfontconfig curl wget ca-certificates && \
                     apt-get clean && \
-                    wget -P /tmp/ https://dl.grafana.com/oss/release/grafana_6.3.3_amd64.deb  && \
-                    dpkg -i /tmp/grafana_6.3.3_amd64.deb && \
-                    rm /tmp/grafana_6.3.3_amd64.deb && \
+                    wget -P /tmp/ https://dl.grafana.com/oss/release/grafana_${GRAFANA_VERSION}_amd64.deb  && \
+                    dpkg -i /tmp/grafana_${GRAFANA_VERSION}_amd64.deb && \
+                    rm /tmp/grafana_${GRAFANA_VERSION}_amd64.deb && \
                     curl -L https://github.com/tianon/gosu/releases/download/1.7/gosu-amd64 > /usr/sbin/gosu && \
                     chmod +x /usr/sbin/gosu && \
                     apt-get remove -y curl && \
