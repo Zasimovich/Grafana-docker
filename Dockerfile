@@ -8,11 +8,11 @@ ARG                 GRAFANA_VERSION
 ENV                 GF_INSTALL_PLUGINS=grafana-kairosdb-datasource
 
 RUN                 apt-get update && \
-                    apt-get -y --no-install-recommends install libfontconfig curl ca-certificates && \
+                    apt-get -y --no-install-recommends install libfontconfig curl wget ca-certificates && \
                     apt-get clean && \
-                    curl https://grafanarel.s3.amazonaws.com/builds/grafana_${GRAFANA_VERSION}_amd64.deb > /tmp/grafana.deb && \
-                    dpkg -i /tmp/grafana.deb && \
-                    rm /tmp/grafana.deb && \
+                    wget -P /tmp/ https://dl.grafana.com/oss/release/grafana_6.3.3_amd64.deb  && \
+                    dpkg -i /tmp/grafana_6.3.3_amd64.deb && \
+                    rm /tmp/grafana_6.3.3_amd64.deb && \
                     curl -L https://github.com/tianon/gosu/releases/download/1.7/gosu-amd64 > /usr/sbin/gosu && \
                     chmod +x /usr/sbin/gosu && \
                     apt-get remove -y curl && \
@@ -24,5 +24,5 @@ VOLUME              ["/var/lib/grafana", "/var/lib/grafana/plugins", "/var/log/g
 EXPOSE              3000
 
 COPY                ./run.sh /run.sh
-
+RUN                 chmod +x /run.sh
 ENTRYPOINT          ["/run.sh"]
