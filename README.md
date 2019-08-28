@@ -1,5 +1,7 @@
 # Dockerfile was changed to build Grafana version 6.3.3 from ficial site https://grafana.com/grafana/download
-
+```
+original github repo - https://github.com/stakater/dockerfile-grafana
+```
 
 # Grafana Docker Image
 
